@@ -1,63 +1,55 @@
-/*#region*/
-/* http://meyerweb.com/eric/tools/css/reset/ 2. v2.0 | 20110126
-License: none (public domain)
-*/
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-margin: 0;
-padding: 0;
-border: 0;
-font-size: 100%;
-font: inherit;
-vertical-align: baseline;
+input[type='checkbox'].toggle {
+  opacity: 0;
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
 }
 
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-display: block;
+input[type='checkbox'].toggle + label {
+  color: red;
+  user-select: none;
+  font-size: 50px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
-body {
-line-height: 1;
+input[type='checkbox'].toggle + label::before {
+  content: '';
+  width: 2em;
+  height: 1em;
+  background-color: hsl(0, 80%, 90%);
+  border-radius: 1em;
+  margin-right: .25em;
+  transition: background-color 200ms ease-in-out;
 }
 
-ol, ul {
-list-style: none;
+input[type='checkbox'].toggle + label::after {
+  position: absolute;
+  left: 0.1em;
+  content: '';
+  width: 0.9em;
+  height: 0.9em;
+  background-color: hsl(0, 80%, 60%);
+  border-radius: 1em;
+  transition: transform 200ms ease-in-out;
 }
 
-blockquote, q {
-quotes: none;
+input[type='checkbox'].toggle:focus-visible + label::before {
+  outline: 2px solid black;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-content: '';
-content: none;
+input[type='checkbox'].toggle:checked + label::before {
+  background-color: hsl(120, 80%, 90%);
 }
 
-table {
-border-collapse: collapse;
-border-spacing: 0;
+input[type='checkbox'].toggle:checked + label::after {
+  transform: translateX(100%);
+  background-color: hsl(120, 80%, 60%);
 }
 
-/* I added this */
-*, *::before, *::after {
-box-sizing: border-box;
+input[type='checkbox'].toggle:checked + label {
+  color: green;
 }
-
-/*#endregion*/
-
-
